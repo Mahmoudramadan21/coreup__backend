@@ -233,7 +233,7 @@ async function getInteractions(req, res) {
                 id: { $ifNull: ["$receiver._id", null] },
                 profilePic: { $ifNull: ["$receiver.profilePicture", null] },
                 coverPic: { $ifNull: ["$receiver.coverPicture", null] },
-                name: {
+                title: {
                   $cond: {
                     if: { $eq: ["$receiver.userType", "investor"] },
                     then: {
