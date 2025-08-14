@@ -456,7 +456,7 @@ async function getInteractions(req, res) {
                 id: { $ifNull: ["$sender._id", null] },
                 profilePic: { $ifNull: ["$sender.profilePicture", null] },
                 coverPic: { $ifNull: ["$sender.coverPicture", null] },
-                name: {
+                title: {
                   $cond: {
                     if: { $eq: ["$sender.userType", "investor"] },
                     then: {
@@ -911,7 +911,7 @@ async function getPendingInteractions(req, res) {
               id: { $ifNull: ["$sender._id", null] },
               profilePic: { $ifNull: ["$sender.profilePicture", null] },
               coverPic: { $ifNull: ["$sender.coverPicture", null] },
-              name: {
+              title: {
                 $concat: [
                   { $ifNull: ["$sender.firstName", ""] },
                   " ",
